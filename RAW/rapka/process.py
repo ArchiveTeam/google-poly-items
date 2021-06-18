@@ -11,7 +11,10 @@ def main():
         with open(filename, 'r') as f:
             filedata = json.load(f)
         for d in filedata:
-            data.add('poly:' + d['name'].split('/', 1)[-1])
+            identifier = d['name'].split('/', 1)[-1]
+            if identifier == '2Rb9zxgkDEM':
+                print(d)
+            data.add('poly:' + identifier)
     with open('items', 'w') as f:
         f.write('\n'.join(sorted(data)))
 
